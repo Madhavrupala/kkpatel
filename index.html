@@ -3,233 +3,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome K K Patel!</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 500px;
-            margin: 80px auto;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-            padding: 40px 30px;
-            text-align: center;
-        }
-        h1 {
-            color: #2d6cdf;
-            margin-bottom: 0.2em;
-        }
-        h2 {
-            color: #555;
-            margin-top: 0;
-            margin-bottom: 1.5em;
-        }
-        #funButton {
-            background: #2d6cdf;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 28px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        #funButton:hover {
-            background: #174a8c;
-        }
-        #quoteButton {
-            background: #2d6cdf;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 28px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        #quoteButton:hover {
-            background: #174a8c;
-        }
-        #funArea {
-            margin-top: 2em;
-            min-height: 40px;
-            font-size: 1.2em;
-            color: #2d6cdf;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        .quotes-section {
-            margin-top: 2em;
-            border-top: 2px solid #e0e0e0;
-            padding-top: 2em;
-        }
-        .quote-display {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 1em 0;
-            border-left: 4px solid #2d6cdf;
-            font-style: italic;
-            text-align: left;
-        }
-        .quote-author {
-            text-align: right;
-            font-weight: bold;
-            color: #666;
-            margin-top: 10px;
-        }
-        #shareButton {
-            background: #28a745;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            margin-left: 10px;
-            transition: background 0.2s;
-        }
-        #shareButton:hover {
-            background: #218838;
-        }
-        .confetti {
-            position: fixed;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            opacity: 0.8;
-            pointer-events: none;
-            z-index: 9999;
-            animation: confetti-fall linear forwards;
-        }
-        @keyframes confetti-fall {
-            to {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Task Manager">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iNDgiIGZpbGw9IiM2NjdlZWEiLz4KPHN2ZyB4PSI0OCIgeT0iNDgiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgZmlsbD0id2hpdGUiPgo8cGF0aCBkPSJNNzYgMTJIMjBDMTQuNCAxMiAxMiAxNC40IDEyIDIwVjc2QzEyIDgxLjYgMTQuNCA4NCAyMCA4NEg3NkM4MS42IDg0IDg0IDgxLjYgODQgNzZWMjBDODQgMTQuNCA4MS42IDEyIDc2IDEyWk00MCA1Mkw0OCA0OCwyOCA1NkMyNCA1MiAyMCA1NiAyMCA2MEMyMCA2NCAyNCA2OCAyOCA2OEwzNiA2MEw0MCA1MloiLz4KPC9zdmc+Cjwvc3ZnPgo=">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome, K K Patel! 🎉</h1>
-        <h2>aka Kiran Patel</h2>
-        <button id="funButton">Click Me for Fun!</button>
-        <div id="funArea"></div>
-        
-        <div class="quotes-section">
-            <h3>✨ Daily Inspiration ✨</h3>
-            <button id="quoteButton">Get Inspiring Quote</button>
-            <button id="shareButton">Share Quote</button>
-            <div id="quoteDisplay" class="quote-display" style="display: none;">
-                <div id="quoteText"></div>
-                <div id="quoteAuthor" class="quote-author"></div>
+    <!-- Login Page -->
+    <div id="loginPage" class="page active">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <i class="fas fa-tasks"></i>
+                    <h1>Tax Ready Consulting</h1>
+                    <h2>Task Management System</h2>
+                    <p>Welcome back! Please sign in to continue.</p>
+                </div>
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="userId">User ID</label>
+                        <input type="text" id="userId" name="userId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </button>
+                </form>
+                <div class="demo-credentials">
+                    <h3>Login Credentials:</h3>
+                    <p><strong>Manager:</strong> KK / KK</p>
+                    <p><strong>Employee:</strong> MR / MR</p>
+                </div>
             </div>
         </div>
     </div>
-    <script>
-        // Fun button functionality
-        document.getElementById('funButton').addEventListener('click', function() {
-            const funArea = document.getElementById('funArea');
-            const funMessages = [
-                'You are awesome, Kiran! 😎',
-                'Keep smiling! 😊',
-                'Have a fantastic day! 🌟',
-                'Let\'s make something amazing!',
-                'Fun is just a click away! 🎈',
-                'Coding is fun with you! 💻'
-            ];
-            const confettiColors = ['#2d6cdf', '#ffb347', '#ff6961', '#77dd77', '#f49ac2'];
-            
-            funArea.textContent = funMessages[Math.floor(Math.random() * funMessages.length)];
-            
-            // Confetti effect
-            for (let i = 0; i < 30; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-                confetti.style.animationDuration = (Math.random() * 1 + 1.5) + 's';
-                document.body.appendChild(confetti);
-                setTimeout(() => confetti.remove(), 2000);
-            }
-        });
 
-        // Inspiring quotes array
-        const inspiringQuotes = [
-            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
-            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
-            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-            { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
-            { text: "Life is what happens to you while you're busy making other plans.", author: "John Lennon" },
-            { text: "The only impossible journey is the one you never begin.", author: "Tony Robbins" },
-            { text: "In the middle of difficulty lies opportunity.", author: "Albert Einstein" },
-            { text: "It is during our darkest moments that we must focus to see the light.", author: "Aristotle" },
-            { text: "Be yourself; everyone else is already taken.", author: "Oscar Wilde" },
-            { text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" },
-            { text: "Your limitation—it's only your imagination.", author: "Anonymous" },
-            { text: "Great things never come from comfort zones.", author: "Anonymous" },
-            { text: "Dream it. Wish it. Do it.", author: "Anonymous" },
-            { text: "Success doesn't just find you. You have to go out and get it.", author: "Anonymous" },
-            { text: "The harder you work for something, the greater you'll feel when you achieve it.", author: "Anonymous" }
-        ];
+    <!-- Main Dashboard -->
+    <div id="dashboardPage" class="page">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <i class="fas fa-tasks"></i>
+                <div class="header-title">
+                    <h1>Tax Ready Consulting</h1>
+                    <span class="subtitle">Task Management System</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="datetime-display">
+                    <div id="currentDate"></div>
+                    <div id="currentTime"></div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span id="userWelcome"></span>
+                    <button id="installBtn" class="install-btn" style="display: none;">
+                        <i class="fas fa-download"></i>
+                        Install App
+                    </button>
+                    <button id="logoutBtn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </header>
 
-        let currentQuote = null;
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-section="dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Dashboard
+                        </a></li>
+                        <li id="createTaskMenu" class="manager-only" style="display: none;">
+                            <a href="#" class="nav-link" data-section="createTask">
+                                <i class="fas fa-plus"></i>
+                                Create Task
+                            </a>
+                        </li>
+                        <li id="manageUsersMenu" class="manager-only" style="display: none;">
+                            <a href="#" class="nav-link" data-section="manageUsers">
+                                <i class="fas fa-users"></i>
+                                Manage Users
+                            </a>
+                        </li>
+                        <li id="manageClientsMenu" class="manager-only" style="display: none;">
+                            <a href="#" class="nav-link" data-section="manageClients">
+                                <i class="fas fa-building"></i>
+                                Manage Clients
+                            </a>
+                        </li>
+                        <li><a href="#" class="nav-link" data-section="allTasks">
+                                <i class="fas fa-list"></i>
+                                All Tasks
+                            </a>
+                        </li>
+                        <li><a href="#" class="nav-link" data-section="chat">
+                            <i class="fas fa-comments"></i>
+                            Chat
+                        </a></li>
+                        <li><a href="#" class="nav-link" data-section="profile">
+                            <i class="fas fa-user"></i>
+                            Profile
+                        </a></li>
+                    </ul>
+                </nav>
+            </aside>
 
-        // Quote button functionality
-        document.getElementById('quoteButton').addEventListener('click', function() {
-            const quoteDisplay = document.getElementById('quoteDisplay');
-            const quoteText = document.getElementById('quoteText');
-            const quoteAuthor = document.getElementById('quoteAuthor');
-            
-            currentQuote = inspiringQuotes[Math.floor(Math.random() * inspiringQuotes.length)];
-            
-            quoteText.textContent = `"${currentQuote.text}"`;
-            quoteAuthor.textContent = `— ${currentQuote.author}`;
-            
-            quoteDisplay.style.display = 'block';
-            quoteDisplay.style.opacity = '0';
-            setTimeout(() => {
-                quoteDisplay.style.opacity = '1';
-            }, 100);
-        });
+            <!-- Content Area -->
+            <main class="content">
+                <!-- Dashboard Section -->
+                <section id="dashboardSection" class="content-section active">
+                    <h2>Dashboard</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalTasks">0</h3>
+                                <p>Total Tasks</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="pendingTasks">0</h3>
+                                <p>Pending Tasks</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="completedTasks">0</h3>
+                                <p>Completed Tasks</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="overdueTasks">0</h3>
+                                <p>Overdue Tasks</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-tasks">
+                        <h3>Recent Tasks</h3>
+                        <div id="recentTasksList" class="task-list"></div>
+                    </div>
+                </section>
 
-        // Share button functionality
-        document.getElementById('shareButton').addEventListener('click', function() {
-            if (currentQuote) {
-                const shareText = `"${currentQuote.text}" — ${currentQuote.author}`;
-                
-                if (navigator.share) {
-                    navigator.share({
-                        title: 'Inspiring Quote',
-                        text: shareText,
-                        url: window.location.href
-                    });
-                } else {
-                    // Fallback for browsers that don't support Web Share API
-                    navigator.clipboard.writeText(shareText).then(() => {
-                        alert('Quote copied to clipboard! 📋');
-                    }).catch(() => {
-                        // Final fallback
-                        const textarea = document.createElement('textarea');
-                        textarea.value = shareText;
-                        document.body.appendChild(textarea);
-                        textarea.select();
-                        document.execCommand('copy');
-                        document.body.removeChild(textarea);
-                        alert('Quote copied to clipboard! 📋');
-                    });
-                }
-            } else {
-                alert('Please get a quote first! 💭');
-            }
-        });
-    </script>
+                <!-- My Tasks Section -->
+                <section id="tasksSection" class="content-section">
+                    <div class="section-header">
+                        <h2>My Tasks</h2>
+                        <div class="task-filters">
+                            <select id="employeeFilter">
+                                <option value="all">All Employees</option>
+                            </select>
+                            <select id="clientFilter">
+                                <option value="all">All Clients</option>
+                            </select>
+                            <select id="statusFilter">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="in-progress">In Progress</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                            <select id="priorityFilter">
+                                <option value="all">All Priority</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="myTasksList" class="task-list"></div>
+                </section>
+
+                <!-- All Tasks Section (Manager Only) -->
+                <section id="allTasksSection" class="content-section">
+                    <div class="section-header">
+                        <h2>All Tasks</h2>
+                        <div class="task-filters">
+                            <select id="employeeFilter">
+                                <option value="all">All Employees</option>
+                            </select>
+                            <select id="clientFilter">
+                                <option value="all">All Clients</option>
+                            </select>
+                            <select id="allStatusFilter">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="in-progress">In Progress</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="allTasksList" class="task-list"></div>
+                </section>
+
+                <!-- Create Task Section (Manager Only) -->
+                <section id="createTaskSection" class="content-section">
+                    <h2>Create New Task</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="taskTitle">Task Title</label>
+                                <input type="text" id="taskTitle" name="taskTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="assignTo">Assign To</label>
+                                <select id="assignTo" name="assignTo" required>
+                                    <option value="">Select Employee</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="taskClient">Client</label>
+                                <select id="taskClient" name="taskClient" required>
+                                    <option value="">Select Client</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="taskPriority">Priority</label>
+                                <select id="taskPriority" name="taskPriority" required>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="taskDeadline">Deadline</label>
+                                <input type="datetime-local" id="taskDeadline" name="taskDeadline" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDescription">Description</label>
+                            <textarea id="taskDescription" name="taskDescription" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Create Task
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Manage Users Section (Manager Only) -->
+                <section id="manageUsersSection" class="content-section">
+                    <h2>Manage Users</h2>
+                    <div class="section-actions">
+                        <button id="addUserBtn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add User
+                        </button>
+                    </div>
+                    <div id="usersList" class="users-list"></div>
+                </section>
+
+                <!-- Manage Clients Section (Manager Only) -->
+                <section id="manageClientsSection" class="content-section">
+                    <h2>Manage Clients</h2>
+                    <div class="section-actions">
+                        <button id="addClientBtn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Add Client
+                        </button>
+                    </div>
+                    <div id="clientsList" class="clients-list"></div>
+                </section>
+
+                <!-- Chat Section -->
+                <section id="chatSection" class="content-section">
+                    <h2>Team Chat</h2>
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chatMessages"></div>
+                        <div class="chat-input">
+                            <input type="text" id="messageInput" placeholder="Type your message...">
+                            <button id="sendMessageBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profileSection" class="content-section">
+                    <h2>Profile</h2>
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profileName"></h3>
+                            <p id="profileRole"></p>
+                            <p id="profileEmail"></p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Task Details</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="taskDetails"></div>
+                <div class="task-actions">
+                    <select id="taskStatus">
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <button id="updateTaskBtn" class="btn btn-primary">Update Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New User</h3>
+                <span class="close" onclick="closeAddUserModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="addUserForm">
+                    <div class="form-group">
+                        <label for="newUserId">User ID</label>
+                        <input type="text" id="newUserId" name="newUserId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserPassword">Password</label>
+                        <input type="password" id="newUserPassword" name="newUserPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserName">Full Name</label>
+                        <input type="text" id="newUserName" name="newUserName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserEmail">Email</label>
+                        <input type="email" id="newUserEmail" name="newUserEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserRole">Role</label>
+                        <select id="newUserRole" name="newUserRole" required>
+                            <option value="employee">Employee</option>
+                            <option value="manager">Manager</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Client Modal -->
+    <div id="addClientModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Client</h3>
+                <span class="close" onclick="closeAddClientModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="addClientForm">
+                    <div class="form-group">
+                        <label for="newClientName">Client Name</label>
+                        <input type="text" id="newClientName" name="newClientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newClientContact">Contact Person</label>
+                        <input type="text" id="newClientContact" name="newClientContact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newClientEmail">Email</label>
+                        <input type="email" id="newClientEmail" name="newClientEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newClientPhone">Phone</label>
+                        <input type="tel" id="newClientPhone" name="newClientPhone" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Client</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
