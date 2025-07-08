@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome K K Patel!</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 80px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #2d6cdf;
+            margin-bottom: 0.2em;
+        }
+        h2 {
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 1.5em;
+        }
+        #funButton {
+            background: #2d6cdf;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 28px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #funButton:hover {
+            background: #174a8c;
+        }
+        #quoteButton {
+            background: #2d6cdf;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 28px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #quoteButton:hover {
+            background: #174a8c;
+        }
+        #funArea {
+            margin-top: 2em;
+            min-height: 40px;
+            font-size: 1.2em;
+            color: #2d6cdf;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .quotes-section {
+            margin-top: 2em;
+            border-top: 2px solid #e0e0e0;
+            padding-top: 2em;
+        }
+        .quote-display {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 1em 0;
+            border-left: 4px solid #2d6cdf;
+            font-style: italic;
+            text-align: left;
+        }
+        .quote-author {
+            text-align: right;
+            font-weight: bold;
+            color: #666;
+            margin-top: 10px;
+        }
+        #shareButton {
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background 0.2s;
+        }
+        #shareButton:hover {
+            background: #218838;
+        }
+        .confetti {
+            position: fixed;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 9999;
+            animation: confetti-fall linear forwards;
+        }
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, K K Patel! 🎉</h1>
+        <h2>aka Kiran Patel</h2>
+        <button id="funButton">Click Me for Fun!</button>
+        <div id="funArea"></div>
+        
+        <div class="quotes-section">
+            <h3>✨ Daily Inspiration ✨</h3>
+            <button id="quoteButton">Get Inspiring Quote</button>
+            <button id="shareButton">Share Quote</button>
+            <div id="quoteDisplay" class="quote-display" style="display: none;">
+                <div id="quoteText"></div>
+                <div id="quoteAuthor" class="quote-author"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Fun button functionality
+        document.getElementById('funButton').addEventListener('click', function() {
+            const funArea = document.getElementById('funArea');
+            const funMessages = [
+                'You are awesome, Kiran! 😎',
+                'Keep smiling! 😊',
+                'Have a fantastic day! 🌟',
+                'Let\'s make something amazing!',
+                'Fun is just a click away! 🎈',
+                'Coding is fun with you! 💻'
+            ];
+            const confettiColors = ['#2d6cdf', '#ffb347', '#ff6961', '#77dd77', '#f49ac2'];
+            
+            funArea.textContent = funMessages[Math.floor(Math.random() * funMessages.length)];
+            
+            // Confetti effect
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                confetti.style.animationDuration = (Math.random() * 1 + 1.5) + 's';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 2000);
+            }
+        });
+
+        // Inspiring quotes array
+        const inspiringQuotes = [
+            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
+            { text: "Life is what happens to you while you're busy making other plans.", author: "John Lennon" },
+            { text: "The only impossible journey is the one you never begin.", author: "Tony Robbins" },
+            { text: "In the middle of difficulty lies opportunity.", author: "Albert Einstein" },
+            { text: "It is during our darkest moments that we must focus to see the light.", author: "Aristotle" },
+            { text: "Be yourself; everyone else is already taken.", author: "Oscar Wilde" },
+            { text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" },
+            { text: "Your limitation—it's only your imagination.", author: "Anonymous" },
+            { text: "Great things never come from comfort zones.", author: "Anonymous" },
+            { text: "Dream it. Wish it. Do it.", author: "Anonymous" },
+            { text: "Success doesn't just find you. You have to go out and get it.", author: "Anonymous" },
+            { text: "The harder you work for something, the greater you'll feel when you achieve it.", author: "Anonymous" }
+        ];
+
+        let currentQuote = null;
+
+        // Quote button functionality
+        document.getElementById('quoteButton').addEventListener('click', function() {
+            const quoteDisplay = document.getElementById('quoteDisplay');
+            const quoteText = document.getElementById('quoteText');
+            const quoteAuthor = document.getElementById('quoteAuthor');
+            
+            currentQuote = inspiringQuotes[Math.floor(Math.random() * inspiringQuotes.length)];
+            
+            quoteText.textContent = `"${currentQuote.text}"`;
+            quoteAuthor.textContent = `— ${currentQuote.author}`;
+            
+            quoteDisplay.style.display = 'block';
+            quoteDisplay.style.opacity = '0';
+            setTimeout(() => {
+                quoteDisplay.style.opacity = '1';
+            }, 100);
+        });
+
+        // Share button functionality
+        document.getElementById('shareButton').addEventListener('click', function() {
+            if (currentQuote) {
+                const shareText = `"${currentQuote.text}" — ${currentQuote.author}`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Inspiring Quote',
+                        text: shareText,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback for browsers that don't support Web Share API
+                    navigator.clipboard.writeText(shareText).then(() => {
+                        alert('Quote copied to clipboard! 📋');
+                    }).catch(() => {
+                        // Final fallback
+                        const textarea = document.createElement('textarea');
+                        textarea.value = shareText;
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                        alert('Quote copied to clipboard! 📋');
+                    });
+                }
+            } else {
+                alert('Please get a quote first! 💭');
+            }
+        });
+    </script>
+</body>
+</html>
